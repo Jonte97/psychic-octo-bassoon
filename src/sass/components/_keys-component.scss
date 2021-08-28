@@ -1,0 +1,104 @@
+.keys-component {
+    .key {
+        .key-section {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            .key-content {
+                z-index: 1;
+                color: white;
+                position: absolute;
+                top: 20%;
+                text-align: center;
+                width: 100%;
+                .button {
+                    span {
+                        padding: 0.5rem;
+                        border: 2px solid white;
+                    }
+                }
+            }
+            .image {
+                max-height: 100vh !important;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .image-animation {
+                animation: breath 15s linear;
+            }
+        }
+        .key-list{
+            position: absolute;
+            bottom: 5%;  
+            width: 100%;  
+            ul{
+                padding: 0;
+                margin: 0;
+                display: flex; 
+                list-style: none;
+                justify-content: center;
+                li{
+                    margin: 5px;
+                    .dot{
+                        opacity: .5;
+                        height: 25px;
+                        width: 25px;
+                        background-color: white;
+                        border-radius: 50%;
+                        display: inline-block;
+                    }
+                    .active{
+                        background-color: rgba(246, 4, 4, 0.623);
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: $desktop) {
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        .key-image-section {
+            width: 50%;
+            height: 100%;
+        }
+        .key {
+            width: 50%;
+            .image {
+                display: block;
+                width: 100%;
+                height: 50%;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+            .key-content {
+                width: 100%;
+                height: 50%;
+                background-color: $theme-primary;
+                animation-name: slideIn;
+                animation-duration: 2s;
+                h1 {
+                    margin: 0;
+                }
+                .background-image {
+                    height: 100%;
+                    width: 100%;
+                    background-image: url("../../assets/img/keys-img/background-key.png");
+                    background-position: center center;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+    @keyframes slideIn {
+        0% {
+            height: 0%;
+        }
+        100% {
+            height: 100%;
+        }
+    }
+}

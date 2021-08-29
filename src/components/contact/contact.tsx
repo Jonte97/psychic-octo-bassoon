@@ -1,42 +1,61 @@
 import React from "react";
 
 const Contact: React.FC = () => {
-    const emailInput = React.useRef<HTMLInputElement | null>(null);
-
-    const onFocus = (elementId: string) => {};
-
     return (
         <section className="contact-component">
             <div className="contact-header">
                 <h1 className="dance-script-headline">Kontakta mig</h1>
             </div>
-            <form>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                }}
+                className="mail-form"
+            >
                 <div className="form-element">
                     <input
                         name="email"
                         type="text"
                         className="email-input"
-                        ref={emailInput}
                         required
-                        onFocus={() => onFocus(emailInput.current!.name)}
                         autoComplete="off"
                     />
                     <label className="email-label" htmlFor="email">
-                        <span className="content-name-email">E-post</span>
+                        <span className="content-name-email content-name">
+                            E-post
+                        </span>
                     </label>
                 </div>
                 <div className="form-element">
-                    <input name="subject" type="text" />
-                    <label htmlFor="email">Ämne</label>
+                    <input
+                        name="subject"
+                        type="text"
+                        className="subject-input"
+                        required
+                    />
+                    <label htmlFor="email" className="subject-label">
+                        <span className="content-name-subject content-name">
+                            Ämne
+                        </span>
+                    </label>
                 </div>
-                <div className="form-element">
-                    <label htmlFor="message">Övrigt</label>
+                <div className="form-element-textarea">
+                    <label htmlFor="message">
+                        <span>Meddelande</span>
+                    </label>
                     <textarea
-                        className="form-element"
+                        placeholder="Vad kan jag hjälpa dig med..."
+                        className="text-area"
                         name="message"
                     ></textarea>
                 </div>
-                <input type="submit" />
+                <div className="submit-wrapper">
+                    <input
+                        type="submit"
+                        className="btn-submit"
+                        value="Skicka"
+                    />
+                </div>
             </form>
         </section>
     );

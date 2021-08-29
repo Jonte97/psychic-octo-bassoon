@@ -7,9 +7,9 @@
         padding: 2rem 0;
     }
     form {
-        padding: 1rem 15%;
+        padding: 3rem 15%;
         .form-element {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -17,7 +17,7 @@
                 position: absolute;
                 height: 100%;
                 width: 100%;
-                bottom: -1px;
+                bottom: 0px;
                 left: 0;
                 pointer-events: none;
                 border-bottom: 1px solid black;
@@ -28,7 +28,7 @@
                 width: 100%;
                 height: 100%;
                 left: 0px;
-                bottom: 0px;
+                bottom: -1px;
                 border-bottom: 3px solid $theme-primary;
                 transform: translateX(-101%);
                 transition: transform 0.3s linear;
@@ -41,6 +41,7 @@
                 padding-top: 20px;
                 outline: none;
                 padding-bottom: 5px;
+                font-size: 20px;
             }
             .content-name-email {
                 position: absolute;
@@ -48,15 +49,70 @@
                 left: 0px;
                 transition: all 0.3s ease;
             }
-            input:focus + .email-label .content-name-email,
+            .content-name {
+                position: absolute;
+                bottom: 5px;
+                left: 0px;
+                transition: all 0.3s ease;
+                font-size: 18px;
+            }
+            .email-input:focus + .email-label .content-name-email,
             .email-input:valid + .email-label .content-name-email {
-                transform: translateY(-100%);
+                transform: translateY(-150%);
                 font-size: 14px;
                 color: $theme-primary;
             }
             .email-input:focus + .email-label::after,
             .email-input:valid + .email-label::after {
                 transform: translateX(0%);
+            }
+
+            .subject-input:focus + .subject-label .content-name-subject,
+            .subject-input:valid + .subject-label .content-name-subject {
+                transform: translateY(-150%);
+                font-size: 14px;
+                color: $theme-primary;
+            }
+            .subject-input:focus + .subject-label::after,
+            .subject-input:valid + .subject-label::after {
+                transform: translateX(0%);
+            }
+        }
+        .form-element-textarea {
+            height: 100%;
+            width: 100%;
+            .text-area {
+                margin-top: 10px;
+                width: 100%;
+                height: 100%;
+                font-size: 18px;
+                border-radius: 0%;
+                border: 1px solid black;
+                outline: none;
+                height: 150px;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            .text-area:focus {
+                border: 1px solid $theme-primary;
+            }
+        }
+        .submit-wrapper {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: flex-end;
+
+            .btn-submit {
+                background-color: $theme-primary;
+                border: none;
+                padding: 7px;
+                color: white;
+                font-size: 1rem;
+                font-weight: 400;
+                text-align: center;
+                padding: .375rem .75rem;
+                line-height: 1.5;
+                border-radius: 2px;
             }
         }
         @keyframes label {

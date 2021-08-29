@@ -1,3 +1,71 @@
-.contact-component{
-    height: 100vh;
+.contact-component {
+    min-height: 100vh;
+    .contact-header {
+        background-color: $theme-primary;
+        height: 50%;
+        text-align: center;
+        padding: 2rem 0;
+    }
+    form {
+        padding: 1rem 15%;
+        .form-element {
+            margin-bottom: 1rem;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            label {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                bottom: -1px;
+                left: 0;
+                pointer-events: none;
+                border-bottom: 1px solid black;
+            }
+            label::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                bottom: 0px;
+                border-bottom: 3px solid $theme-primary;
+                transform: translateX(-101%);
+                transition: transform 0.3s linear;
+            }
+            input {
+                height: 100%;
+                width: 100%;
+                border: none;
+                font-size: 1rem;
+                padding-top: 20px;
+                outline: none;
+                padding-bottom: 5px;
+            }
+            .content-name-email {
+                position: absolute;
+                bottom: 5px;
+                left: 0px;
+                transition: all 0.3s ease;
+            }
+            input:focus + .email-label .content-name-email,
+            .email-input:valid + .email-label .content-name-email {
+                transform: translateY(-100%);
+                font-size: 14px;
+                color: $theme-primary;
+            }
+            .email-input:focus + .email-label::after,
+            .email-input:valid + .email-label::after {
+                transform: translateX(0%);
+            }
+        }
+        @keyframes label {
+            0% {
+                bottom: 15px;
+            }
+            100% {
+                bottom: 50px;
+            }
+        }
+    }
 }

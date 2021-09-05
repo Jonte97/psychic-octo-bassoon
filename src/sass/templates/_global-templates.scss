@@ -1,0 +1,33 @@
+
+//TODO ADD RESPONSIVE SNIPPETS
+
+.theme-section-small {
+    background-color: $theme-primary;
+    text-align: center;
+    padding: 0.25rem;
+    margin: 0;
+    .title {
+        margin: 2rem 0;
+        font-family: dancingScriptHeadline;
+        font-size: 3rem;
+        color: white;
+    }
+}
+
+.section-padding{
+    padding: 0 15%;
+}
+
+.btn{
+    border-radius: 2px;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: .375rem .75rem;
+}
+.btn-primary {
+    background-color: $theme-primary;
+    border: none;
+    color: white;
+}

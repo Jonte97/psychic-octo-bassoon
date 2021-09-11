@@ -6,6 +6,7 @@ import About from './components/about/About';
 import Keys from './components/keys/keys';
 import Contact from './components/contact/contact';
 import CoachingInfo from './components/coaching-info/coaching-info';
+import Footer from './components/footer/Footer';
 
 const App:React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App:React.FC = () => {
       <CoachingInfo />
       <Keys />
       <Contact />
+      <Footer />
     </div>
   );
 }

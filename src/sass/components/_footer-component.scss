@@ -1,0 +1,23 @@
+.footer-component{
+    background-color: $theme-primary;
+    height: 50vh;
+    padding: 3rem 15%;
+    .social-media-list{
+        padding-top: 3rem;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        li{
+        
+            
+        }
+        .icon{
+            svg{
+                fill: white;
+                height: 36px;
+                width: 36px;
+            }
+        }
+    }
+}

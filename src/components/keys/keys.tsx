@@ -51,7 +51,7 @@ const Keys: React.FC = () => {
     };
 
     return (
-        <section className="keys-component">
+        <section id="seven-keys-component" className="keys-component">
             <div className="key">
                 <div className={`key-section`}>
                     <div

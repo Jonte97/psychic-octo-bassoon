@@ -9,7 +9,7 @@ const About: React.FC = () => {
     };
 
     return (
-        <section className="about-component">
+        <section id="about-component" className="about-component">
             <div className="left-section">
                 <h1 className="dance-script-headline">Om mig</h1>
             </div>

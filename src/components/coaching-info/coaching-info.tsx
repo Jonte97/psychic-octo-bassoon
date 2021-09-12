@@ -4,7 +4,7 @@ import { BiBody, BiConversation, BiPhoneCall } from "react-icons/bi";
 
 const CoachingInfo: React.FC = () => {
     return (
-        <section className="coach-info-component">
+        <section id="coach-component" className="coach-info-component">
             <article className="coach-info-article">
                 <div className="theme-section-small">
                     <h1 className="title">Livscoach</h1>
@@ -19,7 +19,7 @@ const CoachingInfo: React.FC = () => {
                         eligendi consectetur.
                     </p>
                 </div>
-                <div className="session-details section-padding">
+                <div id="session-details-component" className="session-details section-padding">
                     <div>
                         <div className="session-row">
                             <div className="session-row-header">

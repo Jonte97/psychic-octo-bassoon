@@ -31,18 +31,18 @@
                 animation: fade-in 2s linear forwards;
             }
             .btn-close {
-                z-index: 2;
+                z-index: 1;
                 position: absolute;
-                top: 5%;
-                right: 5%;
-                padding: 0.5rem;
+                top: 2rem;
+                right: 2rem;
+                padding: 1rem;
                 border-radius: 50%;
-                background-color: #96000087;
+                background-color: $theme-red;
                 svg {
                     fill: white;
                     display: block;
-                    height: 1.5rem;
-                    width: 1.5rem;
+                    height: 18px;
+                    width: 18px;
                 }
             }
             .image-container {

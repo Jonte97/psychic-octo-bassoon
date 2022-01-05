@@ -7,15 +7,17 @@ import Keys from './components/keys/keys';
 import Contact from './components/contact/contact';
 import CoachingInfo from './components/coaching-info/coaching-info';
 import Footer from './components/footer/Footer';
+import AboutMe from './components/about-me/about-me';
 
 const App:React.FC = () => {
   return (
     <div className="App">
       <Header />
       <WelcomePage />
+      <AboutMe />
+      <Keys />
       <About />
       <CoachingInfo />
-      <Keys />
       <Contact />
       <Footer />
     </div>

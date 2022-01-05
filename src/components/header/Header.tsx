@@ -5,10 +5,10 @@ import { scrollToId } from "../../domain/core/animations";
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
-	useEffect(() => {
-		window.addEventListener("scroll", listenToScroll);
-		return () => window.removeEventListener("scroll", listenToScroll);
-	}, []);
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -29,16 +29,23 @@ const Header: React.FC = () => {
     }
   };
   return (
-    <header className="header-component">
-      <div>
-        {isVisible && (
-          <div className="">
-            <div className="navbar-btn" onClick={toggleMenu}>
-              <GiHamburgerMenu />
+    <React.Fragment>
+      <header className="header-component">
+        <div>
+          {!isVisible && (
+            <div className="header-title">
+              <h1 className="dance-script">Livscoach</h1>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+          {isVisible && (
+            <div className="">
+              <div className="navbar-btn" onClick={toggleMenu}>
+                <GiHamburgerMenu />
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
       {menuOpen && (
         <nav className="nav-menu">
           <div className="nav-wrapper">
@@ -56,7 +63,7 @@ const Header: React.FC = () => {
           </div>
         </nav>
       )}
-    </header>
+    </React.Fragment>
   );
 };
 

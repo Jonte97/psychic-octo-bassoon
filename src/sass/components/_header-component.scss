@@ -1,8 +1,16 @@
 @include animation-fade(fade-in, 0%, 100%);
 .header-component {
-    height: 100px;
+    position: absolute;
     background-color: $theme-primary;
-    
+    height: 100px;
+    width: 100%;
+    color: black;
+    .header-title{
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .navbar-btn {
         z-index: 3;
         position: fixed;
@@ -20,30 +28,31 @@
             width: 18px;
         }
     }
-    .nav-menu {
-        animation: fade-in 200ms linear;
-        height: 100vh;
-        width: 100%;
-        position: fixed;
-        z-index: 2;
-        background-color: $theme-primary;
+}
+.nav-menu {
+    animation: fade-in 200ms linear;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    display: block;
+    z-index: 2;
+    background-color: $theme-primary;
+    .nav-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 100%;
-        .nav-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            .menu-list {
-                
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                li {
-                    text-align: center;
-                    margin: 1rem 0;
-                    font-size: 2rem;
-                    vertical-align: middle;
-                }
+        .menu-list {
+            
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                text-align: center;
+                margin: 1rem 0;
+                font-size: 2rem;
+                vertical-align: middle;
             }
         }
     }

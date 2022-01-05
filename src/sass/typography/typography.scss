@@ -1,0 +1,29 @@
+p,
+span,
+textarea {
+    font-family: robotoRegular;
+    font-size: 1.2rem;
+}
+input,
+select,
+textarea,
+button {
+    font-family: inherit !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: robotoHeadline;
+}
+.dance-script-headline {
+    font-family: dancingScriptHeadline;
+    font-size: 4rem;
+    color: white;
+}
+.dance-script-headline-dark {
+    font-family: dancingScriptHeadline;
+    font-size: 2rem;
+}

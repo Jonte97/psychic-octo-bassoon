@@ -1,7 +1,13 @@
+@include animation-slide(slide-up, 100%, 60%);
+@include animation-slide(slide-down, 60%, 100%);
+@include animation-fade(fade-out, 1, 0);
+@include animation-fade(fade-in, 0, 1);
 .keys-component {
+    height: 100vh;
     .key {
+        position: relative;
         .key-section {
-            height: 100%;
+            height: 100vh;
             position: relative;
             overflow: hidden;
             .key-content {
@@ -11,48 +17,90 @@
                 top: 20%;
                 text-align: center;
                 width: 100%;
-                .button {
+                .btn-readmore {
                     span {
                         padding: 0.5rem;
                         border: 2px solid white;
                     }
                 }
             }
-            .image {
-                max-height: 100vh !important;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
+            .fade-out {
+                animation: fade-out 1s linear forwards;
+            }
+            .fade-in {
+                animation: fade-in 2s linear forwards;
+            }
+            .btn-close {
+                z-index: 1;
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                padding: 1rem;
+                border-radius: 50%;
+                background-color: $theme-red;
+                svg {
+                    fill: white;
+                    display: block;
+                    height: 18px;
+                    width: 18px;
+                }
+            }
+            .image-container {
+                height: 100%;
+                .image {
+                    display: block;
+                    height: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
             }
             .image-animation {
-                animation: breath 15s linear;
+                animation: breath 15s ease;
             }
         }
-        .key-list{
+        .key-wrapper {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+        .key-list {
             position: absolute;
-            bottom: 5%;  
-            width: 100%;  
-            ul{
+            bottom: 5%;
+            width: 100%;
+            ul {
                 padding: 0;
                 margin: 0;
-                display: flex; 
+                display: flex;
                 list-style: none;
                 justify-content: center;
-                li{
+                li {
                     margin: 5px;
-                    .dot{
-                        opacity: .5;
-                        height: 25px;
-                        width: 25px;
+                    .dot {
+                        opacity: 0.5;
+                        height: 12px;
+                        width: 12px;
                         background-color: white;
                         border-radius: 50%;
                         display: inline-block;
                     }
-                    .active{
+                    .active {
                         background-color: rgba(246, 4, 4, 0.623);
                     }
                 }
             }
+        }
+        .key-description {
+            padding: 1rem;
+        }
+
+        .slide-up {
+            animation: slide-up 2000ms ease;
+            height: 60%;
+        }
+        .slide-down {
+            animation: slide-down 1000ms ease;
+            height: 100%;
         }
     }
     @media screen and (min-width: $desktop) {
@@ -77,8 +125,6 @@
                 width: 100%;
                 height: 50%;
                 background-color: $theme-primary;
-                animation-name: slideIn;
-                animation-duration: 2s;
                 h1 {
                     margin: 0;
                 }
@@ -91,14 +137,6 @@
                     background-repeat: no-repeat;
                 }
             }
-        }
-    }
-    @keyframes slideIn {
-        0% {
-            height: 0%;
-        }
-        100% {
-            height: 100%;
         }
     }
 }

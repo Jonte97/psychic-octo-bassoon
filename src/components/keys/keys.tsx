@@ -1,18 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import key1 from "../../assets/img/keys-img/key1.jpeg";
-import key2 from "../../assets/img/keys-img/key2.jpeg";
-import key3 from "../../assets/img/keys-img/key3.jpeg";
-import key4 from "../../assets/img/keys-img/key4.jpeg";
-import key5 from "../../assets/img/keys-img/key5.jpeg";
-interface KeyValuePair {
-    key: number;
-    value: Key;
-}
-interface Key {
-    title: string;
-    image: string;
-    active: boolean;
-}
+import { keys } from "../../assets/content/keys";
+import { MdClose } from "react-icons/md";
+
+import { KeyValuePair } from "../../domain/model/KeyValuePair.model";
 
 const Keys: React.FC = () => {
     const refs = useRef([
@@ -24,33 +14,6 @@ const Keys: React.FC = () => {
         React.createRef<HTMLSpanElement>(),
     ]);
 
-    const keys = [
-        {
-            key: 0,
-            value: { active: true, image: key1, title: "Prägling" },
-        },
-        {
-            key: 1,
-            value: { active: false, image: key2, title: "Relationer" },
-        },
-        {
-            key: 2,
-            value: { active: false, image: key3, title: "Tid" },
-        },
-        {
-            key: 3,
-            value: { active: false, image: key4, title: "Kroppen" },
-        },
-        {
-            key: 4,
-            value: { active: false, image: key5, title: "Närvaro" },
-        },
-        {
-            key: 5,
-            value: { active: false, image: "key6", title: "Vision" },
-        },
-    ] as KeyValuePair[];
-
     const [activeKey, setActiveKey] = useState<KeyValuePair>(keys[0]);
 
     useEffect(() => {
@@ -61,53 +24,88 @@ const Keys: React.FC = () => {
                 }
             });
         });
-        const imageElement = document.querySelector(".image");
+        const imageElement = document.querySelector(".image-container");
         if (imageElement) {
             observer.observe(imageElement);
         }
     }, []);
     useEffect(() => {
-        document.querySelector(".image")?.classList.add('image-animation');
-    }, [activeKey])
-    
+        document
+            .querySelector(".image-container")
+            ?.classList.add("image-animation");
+    }, [activeKey]);
+
     const changeKey = (id: number): void => {
-        document.querySelector(".image")?.classList.remove('image-animation');
-        refs.current[activeKey.key].current?.classList.remove('active');
-        refs.current[id].current?.classList.add('active');
+        document
+            .querySelector(".image-container")
+            ?.classList.remove("image-animation");
+        refs.current[activeKey.key].current?.classList.remove("active");
+        refs.current[id].current?.classList.add("active");
         setActiveKey(keys[id]);
     };
 
+    const [slideUp, setSlideUp] = React.useState<boolean>(false);
+
+    const readMore = () => {
+        setSlideUp(!slideUp);
+    };
+
     return (
-        <section className="keys-component">
+        <section id="seven-keys-component" className="keys-component">
             <div className="key">
-                <div className="key-section">
-                    <div className="key-content">
-                        <h1 className="title dance-script-headline">
-                            {activeKey.value.title}
-                        </h1>
-                        <div className="button">
-                            <span>Läs mer</span>
+                <div className={`key-section`}>
+                    <div
+                        className={`${
+                            slideUp ? "slide-up" : "slide-down"
+                        } key-wrapper`}
+                    >
+                        <div
+                            onClick={() => readMore()}
+                            className={`${
+                                slideUp ? "fade-in" : "fade-out"
+                            } btn-close`}
+                        >
+                            <MdClose />
+                        </div>
+                        <div className="key-content">
+                            <h1 className="title dance-script-headline">
+                                {activeKey.value.title}
+                            </h1>
+
+                            <div
+                                className={`${
+                                    !slideUp ? "fade-in" : "fade-out"
+                                } btn-readmore`}
+                            >
+                                <span onClick={() => readMore()}>Läs mer</span>
+                            </div>
+                        </div>
+                        <div className="image-container">
+                            <img
+                                alt="keyImage"
+                                className={`image`}
+                                src={activeKey?.value.image}
+                            ></img>
+                        </div>
+                        <div className="key-list">
+                            <ul>
+                                {keys.map((value, index) => (
+                                    <li key={index}>
+                                        <span
+                                            ref={refs.current[index]}
+                                            id={`key${index}`}
+                                            onClick={() => changeKey(index)}
+                                            className="dot"
+                                        ></span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
-                    <img
-                        alt="keyImage"
-                        className="image"
-                        src={activeKey?.value.image}
-                    ></img>
-                    <div className="key-list">
-                        <ul>
-                            {keys.map((value, index) => (
-                                <li key={index}>
-                                    <span
-                                        ref={refs.current[index]}
-                                        id={`key${index}`}
-                                        onClick={() => changeKey(index)}
-                                        className="dot"
-                                    ></span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <article className="key-description">
+                        <h1>{activeKey.value.title}</h1>
+                        <p>{activeKey.value.description}</p>
+                    </article>
                 </div>
             </div>
         </section>

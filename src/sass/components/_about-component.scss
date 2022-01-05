@@ -1,4 +1,19 @@
 .about-component {
+    .theme-section {
+        background-color: $theme-primary;
+        text-align: center;
+        padding: .25rem;
+        margin: 0;
+        .title{
+            margin: 2rem 0;
+        }
+    }
+    article {
+        padding: 2rem 0;
+        .text-section {
+            padding: 0 15%;
+        }
+    }
     .left-section {
         background-color: $theme-primary;
         text-align: center;
@@ -15,9 +30,6 @@
             display: block;
             margin: 0;
         }
-    }
-    .right-section {
-        padding: 0 15%;
     }
     @media screen and (min-width: $tablet) {
         position: relative;

@@ -1,5 +1,8 @@
 @include animation-fade(fade-in, 0%, 100%);
 .header-component {
+    height: 100px;
+    background-color: $theme-primary;
+    
     .navbar-btn {
         z-index: 3;
         position: fixed;

@@ -1,18 +1,8 @@
-import React, { useState } from "react";
 import profile from "../../assets/img/profile.jpg";
 
 const About: React.FC = () => {
-    const [showmore, setShowmore] = useState<boolean>(false);
-
-    const showText = (): string => {
-        return showmore ? "Visa mindre" : "Visa mer..";
-    };
-
     return (
         <section id="about-component" className="about-component">
-            <div className="left-section">
-                <h1 className="dance-script-headline">Om mig</h1>
-            </div>
             <div className="profile">
                 <img src={profile} alt="profile" />
             </div>
@@ -28,7 +18,6 @@ const About: React.FC = () => {
                             repellendus porro vel?
                         </p>
                     </div>
-                    {showmore === true && (
                         <div className="slide-in">
                             <div className="theme-section">
                                 <h3 className="dance-script-headline title">
@@ -82,14 +71,6 @@ const About: React.FC = () => {
                                 </ol>
                             </div>
                         </div>
-                    )}
-                    <span
-                        onClick={() => {
-                            setShowmore(!showmore);
-                        }}
-                    >
-                        {showText()}
-                    </span>
                 </article>
             </div>
         </section>

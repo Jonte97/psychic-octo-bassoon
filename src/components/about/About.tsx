@@ -11,7 +11,7 @@ const About: React.FC = () => {
             </div>
             <div className="text-section">
               <h1>Om mig</h1>
-              <p>
+              <p className="paragraph">
                 Min stora förändring började för ca 13 år sedan då jag fick en
                 utmattningsdepression. Jag var väldigt illa däran och fick bra
                 hjälp från sjukvården men kände att den inte räckte hela vägen.

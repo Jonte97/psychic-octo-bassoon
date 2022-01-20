@@ -1,7 +1,6 @@
 @include animation-fade(fade-in, 0%, 100%);
 .header-component {
-    position: absolute;
-    background-color: $theme-primary;
+    position: fixed;
     height: 100px;
     width: 100%;
     color: black;
@@ -55,5 +54,22 @@
                 vertical-align: middle;
             }
         }
+    }
+}
+
+.header-component-desktop {
+    position: fixed;
+    height: 100px;
+    width: 100%;
+
+    .header-title{
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-background{
+        background-color: #00000050;
     }
 }

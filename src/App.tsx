@@ -10,6 +10,7 @@ import Footer from './components/footer/Footer';
 import AboutMe from './components/about-me/about-me';
 
 const App:React.FC = () => {
+
   return (
     <div className="App">
       <Header />

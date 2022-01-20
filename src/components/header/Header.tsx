@@ -1,51 +1,74 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { scrollToId } from "../../domain/core/animations";
+import DesktopHeader from "./desktop-header";
+import MobileHeader from "./mobile-header";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
-  useEffect(() => {
+  const [scroll, setScroll] = React.useState<number>(0);
+  const [isMobile, setIsMobile] = React.useState<boolean>(isMobileInitial());
+
+  React.useEffect(() => {}, [scroll]);
+
+  React.useEffect(() => {
+    //*EventListener for scroll
+    const listenToScroll = () => {
+      let heightToHideFrom = 100;
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      setScroll(winScroll);
+      if (winScroll > heightToHideFrom) {
+        !isVisible && // to limit setting state only the first time
+          setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
   }, []);
+
+  React.useEffect(() => {
+    //*Eventlistener for size of screen
+    const listenToResize = () => {
+      if (window.innerWidth <= 760) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    window.addEventListener("resize", listenToResize);
+    return () => window.removeEventListener("resize", listenToResize);
+  }, []);
+
+  //*To open and close menu phone
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  //*To navigate from menu
   const navigate = (id: string): void => {
     toggleMenu();
     scrollToId(id);
   };
-  const listenToScroll = () => {
-    let heightToHideFrom = 100;
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
 
-    if (winScroll > heightToHideFrom) {
-      !isVisible && // to limit setting state only the first time
-        setIsVisible(true);
-    } else {
-      setIsVisible(false);
+  function isMobileInitial(): boolean {
+    if (window.innerWidth <= 760) {
+      return true;
     }
-  };
+    return false;
+  }
+
   return (
     <React.Fragment>
-      <header className="header-component">
-        <div>
-          {!isVisible && (
-            <div className="header-title">
-              <h1 className="dance-script">Livscoach</h1>
-            </div>
-          )}
-          {isVisible && (
-            <div className="">
-              <div className="navbar-btn" onClick={toggleMenu}>
-                <GiHamburgerMenu />
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
+      {isMobile ? (
+        <MobileHeader scroll={0} />
+      ) : (
+        <DesktopHeader scroll={scroll} />
+      )}
+
       {menuOpen && (
         <nav className="nav-menu">
           <div className="nav-wrapper">

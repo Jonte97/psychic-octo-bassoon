@@ -102,9 +102,9 @@ const Keys: React.FC = () => {
                             </ul>
                         </div>
                     </div>
-                    <article className="key-description">
+                    <article className="key-description text-section">
                         <h1>{activeKey.value.title}</h1>
-                        <p>{activeKey.value.description}</p>
+                        <p className="paragraph">{activeKey.value.description}</p>
                     </article>
                 </div>
             </div>

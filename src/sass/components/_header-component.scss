@@ -59,7 +59,6 @@
 
 .header-component-desktop {
     position: fixed;
-    height: 100px;
     width: 100%;
 
     .header-title{
@@ -68,8 +67,28 @@
         align-items: center;
         justify-content: center;
     }
-
     .header-background{
-        background-color: #00000050;
+        background-color: #00000067;
+    }
+    .header-inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+        .menu-list-desktop{
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-size: 1.5rem;
+            li{
+                color: white;
+                display: block;
+                border-bottom: 2px solid transparent;
+            }
+            li:hover{
+                border-bottom: 2px solid white;
+                cursor: pointer;
+            }
+        }
     }
 }

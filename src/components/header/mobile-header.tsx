@@ -1,28 +1,25 @@
-import React from 'react';
+import React from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 interface MobileHeaderProps {
-    scroll:number;
+  scroll: number;
+  toggleMenu: () => void;
 }
 
-const MobileHeader:React.FC<MobileHeaderProps> = (props:MobileHeaderProps) => {
-    console.log(props.scroll);
-    return null;
-     {/* <header className="header-component">
-        <div>
-          {!isVisible && (
-            <div className="header-title">
-              <h1 className="dance-script">Livscoach</h1>
-            </div>
-          )}
-          {isVisible && isMobile && (
-            <div className="">
-              <div className="navbar-btn" onClick={toggleMenu}>
-                <GiHamburgerMenu />
-              </div>
-            </div>
-          )}
+const MobileHeader: React.FC<MobileHeaderProps> = (
+  props: MobileHeaderProps
+) => {
+  return (
+    <header className="header-component">
+      <div>
+        <div className="">
+          <div className="navbar-btn" onClick={props.toggleMenu}>
+            <GiHamburgerMenu />
+          </div>
         </div>
-      </header> */}
-}
+      </div>
+    </header>
+  );
+};
 
 export default MobileHeader;

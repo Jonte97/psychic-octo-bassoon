@@ -50,7 +50,9 @@ const Header: React.FC = () => {
 
   //*To navigate from menu
   const navigate = (id: string): void => {
-    toggleMenu();
+    if(isMobile) {
+      toggleMenu();
+    } 
     scrollToId(id);
   };
 
@@ -64,9 +66,9 @@ const Header: React.FC = () => {
   return (
     <React.Fragment>
       {isMobile ? (
-        <MobileHeader scroll={0} />
+        <MobileHeader scroll={0} toggleMenu={toggleMenu} />
       ) : (
-        <DesktopHeader scroll={scroll} />
+        <DesktopHeader scroll={scroll} navigate={navigate} />
       )}
 
       {menuOpen && (

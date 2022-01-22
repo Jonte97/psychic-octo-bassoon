@@ -4,3 +4,4 @@ export const scrollToId = (id: string) => {
         element.scrollIntoView({ behavior: "smooth" });
     }
 };
+

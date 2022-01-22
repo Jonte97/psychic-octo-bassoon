@@ -1,0 +1,23 @@
+.about-me-component {
+  padding-top: 5rem;
+
+  //TODO add style for phone and tablet
+
+  @media screen and (min-width: $desktop) {
+    padding: 5% 10%;
+    .about-me-wrapper {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .profile {
+        img {
+          max-height: 400px;
+          border-radius: 50%;
+        }
+      }
+			.about-me-text-section{
+				width: clamp(45ch, 50%, 75ch);
+			}
+    }
+  }
+}

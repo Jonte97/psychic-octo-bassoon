@@ -1,11 +1,95 @@
+@include animation-slide(slide-down, 0px, 300px);
+@include animation-slide(slide-up, 300px, 0px);
+
 $price-low: #5de1389c;
 $price-medium: #07e5d699;
 $price-high: #ff00e57d;
 
-
 .pricing-info-component {
   background-color: #f2f5fe;
   padding: 3rem;
+
+  .price-wrapper {
+    justify-content: center;
+    align-items: center;
+
+    .price-card-component {
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      .low {
+        background-color: $price-low;
+      }
+      .medium {
+        background-color: $price-medium;
+      }
+      .high {
+        background-color: $price-high;
+      }
+      .price-card-header {
+        color: white;
+        border-radius: 10px 10px 0 0;
+
+        .headline-wrapper {
+          display: flex;
+          justify-content: center;
+          h2 {
+            text-align: center;
+            padding: 1rem;
+            text-align: center;
+          }
+        }
+      }
+
+      .price-card-body {
+        overflow: hidden;
+        background-color: white;
+        .icon-wrapper {
+          display: flex;
+          justify-content: center;
+          padding: 1rem;
+          .icon {
+            width: 50px;
+            height: 50px;
+          }
+          .priceclass-low {
+            color: $price-low;
+          }
+          .priceclass-medium {
+            color: $price-medium;
+          }
+          .priceclass-high {
+            color: $price-high;
+          }
+        }
+        width: 100%;
+        h2 {
+          margin: 0;
+          color: #7c7c7c;
+        }
+        .price-card-price {
+          text-align: center;
+        }
+        p {
+          padding: 3rem;
+          margin: 0;
+        }
+      }
+    }
+
+    //ANIMATIONS
+
+    @media screen and (max-width: $phone) {
+      .not-active {
+        animation: slide-up 500ms ease;
+        height: 0;
+      }
+      .active {
+        animation: slide-down 500ms ease;
+        height: 300px;
+      }
+    }
+  }
+
   @media screen and (min-width: $desktop) {
     .price-wrapper {
       display: flex;
@@ -14,76 +98,7 @@ $price-high: #ff00e57d;
       align-items: center;
 
       .price-card-component {
-        border-radius: 10px;
         width: 20%;
-				.low{
-					background-color: $price-low;
-				}
-				.medium{
-					background-color: $price-medium;
-				}
-				.high{
-					background-color: $price-high;
-				}
-        .price-card-header {
-					color: white;
-          position: relative;
-          .package-icon {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            width: 64px;
-            height: 64px;
-            fill: $theme-primary;
-          }
-          border-radius: 10px 10px 0 0;
-
-          .headline-wrapper {
-            display: flex;
-            justify-content: center;
-            h2 {
-              text-align: center;
-              padding: 1rem;
-              text-align: center;
-            }
-          }
-        }
-        .price-card-body {
-					height: 300px;
-          background-color: white;
-          .icon-wrapper {
-						display: flex;
-						justify-content: center;
-						padding: 1rem;
-            .icon {
-              width: 50px;
-              height: 50px;
-            }
-						.priceclass-low{
-							color: $price-low;
-						}
-						.priceclass-medium{
-							color: $price-medium;
-						}
-						.priceclass-high{
-							color: $price-high;
-						}
-          }
-          width: 100%;
-          h2 {
-            margin: 0;
-						color: #7c7c7c;
-          }
-          .price-card-price {
-            text-align: center;
-          }
-          p {
-            padding: 3rem;
-            margin: 0;
-          }
-        }
-        .price-card-footer {
-        }
       }
     }
   }

@@ -10,8 +10,8 @@ interface PriceCardProps {
   headline: string;
   description: string;
   price: number;
-  PriceIconProps:PriceIconProps;
-  headerCssClasses:string;
+  PriceIconProps: PriceIconProps;
+  headerCssClasses: string;
 }
 
 interface PriceIconProps {
@@ -19,7 +19,6 @@ interface PriceIconProps {
   priceCSSClasses: string;
 }
 const PriceIcon: React.FC<PriceIconProps> = (props: PriceIconProps) => {
-  console.log(props)
   if (props.type === PriceCardLevel.low) {
     return <IoIosStarOutline className={props.priceCSSClasses} />;
   } else if (props.type === PriceCardLevel.medium) {
@@ -29,22 +28,44 @@ const PriceIcon: React.FC<PriceIconProps> = (props: PriceIconProps) => {
 };
 
 const PriceCard: React.FC<PriceCardProps> = (props: PriceCardProps) => {
+  const [open, setOpen] = React.useState<boolean>(false);
+  const body = React.useRef<HTMLDivElement>(null);
+  const toggleOpen = (): void => {
+    if (body) {
+      if (open === true) {
+        body.current?.classList.remove("not-active");
+        body.current?.classList.add("active");
+        setOpen(false);
+      } else {
+        body.current?.classList.remove("active");
+        body.current?.classList.add("not-active");
+        setOpen(true);
+      }
+    }
+  };
+
   return (
     <div className="price-card-component">
       <div className="price-card">
-        <div className={`price-card-header ${props.headerCssClasses}`}>
+        <div
+          className={`price-card-header ${props.headerCssClasses}`}
+          onClick={() => toggleOpen()}
+        >
           <div className="headline-wrapper">
             <h1 className="headline">{props.headline}</h1>
           </div>
         </div>
-        <div className="price-card-body text-section">
+
+        <div ref={body} className="price-card-body text-section">
           <div className="icon-wrapper">
-            <PriceIcon priceCSSClasses={props.PriceIconProps.priceCSSClasses} type={props.PriceIconProps.type}  />
+            <PriceIcon
+              priceCSSClasses={props.PriceIconProps.priceCSSClasses}
+              type={props.PriceIconProps.type}
+            />
           </div>
           <h2 className="price-card-price">{props.price} kr</h2>
           <p>{props.description}</p>
         </div>
-        <div className="price-card-footer"></div>
       </div>
     </div>
   );

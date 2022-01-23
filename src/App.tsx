@@ -8,6 +8,7 @@ import Contact from './components/contact/contact';
 import CoachingInfo from './components/coaching-info/coaching-info';
 import Footer from './components/footer/Footer';
 import AboutMe from './components/about-me/about-me';
+import PricingInfo from './components/pricing/pricing-info';
 
 const App:React.FC = () => {
 
@@ -19,6 +20,7 @@ const App:React.FC = () => {
       <Keys />
       <About />
       <CoachingInfo />
+      <PricingInfo />
       <Contact />
       <Footer />
     </div>

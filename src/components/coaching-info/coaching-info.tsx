@@ -1,6 +1,7 @@
 import React from "react";
 import { scrollToId } from "../../domain/core/animations";
 import { BiBody, BiConversation, BiPhoneCall } from "react-icons/bi";
+import PriceCard from "../pricing/price-card";
 
 const CoachingInfo: React.FC = () => {
   return (
@@ -9,8 +10,8 @@ const CoachingInfo: React.FC = () => {
         <div className="theme-section-small">
           <h1 className="title">Livscoach</h1>
         </div>
-        <div className="what-is-coach section-padding">
-          <h2>Vad är en livscoach?</h2>
+        <div className="what-is-coach section-padding text-section">
+          <h1>Vad är en livscoach?</h1>
           <p>
             Jag hjälper dig gärna med att hitta tillbaka till dig själv genom
             teraputiska samtal och coachning. Jag jobbar med 6 nycklar som är en
@@ -23,7 +24,7 @@ const CoachingInfo: React.FC = () => {
           className="session-details section-padding"
         >
           <div>
-            <div className="session-row">
+            <div className="session-row text-section">
               <div className="session-row-header">
                 <BiConversation />
                 <h2 className="title">Konversation</h2>
@@ -34,7 +35,7 @@ const CoachingInfo: React.FC = () => {
                 molestiae quam consequuntur rem voluptatibus a qui?
               </p>
             </div>
-            <div className="session-row">
+            <div className="session-row text-section">
               <div className="session-row-header">
                 <BiPhoneCall />
                 <h2 className="title">Telefonsamtal</h2>
@@ -45,7 +46,7 @@ const CoachingInfo: React.FC = () => {
                 molestiae quam consequuntur rem voluptatibus a qui?
               </p>
             </div>
-            <div className="session-row">
+            <div className="session-row text-section">
               <div className="session-row-header">
                 <BiBody />
                 <h2 className="title">Möte</h2>

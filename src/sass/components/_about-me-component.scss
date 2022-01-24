@@ -1,23 +1,54 @@
 .about-me-component {
-  padding-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  .profile {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: 0;
+      border-radius: 50%;
+    }
+  }
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
 
   //TODO add style for phone and tablet
 
   @media screen and (min-width: $desktop) {
-    padding: 5% 10%;
+    padding-left: 15%;
+    .profile {
+      padding: 0;
+      overflow: visible;
+    }
+    height: 700px;
     .about-me-wrapper {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      .profile {
-        img {
-          max-height: 400px;
-          border-radius: 50%;
+      .about-me-text-section {
+        width: 100%;
+        background-color: white;
+        
+      }
+      margin: 5% 0;
+      max-height: 100%;
+      .inner-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .profile {
+          img {
+            height: 100%;
+            max-height: 500px;
+            width: auto;
+            border-radius: 0;
+          }
         }
       }
-			.about-me-text-section{
-				width: clamp(45ch, 50%, 75ch);
-			}
     }
   }
 }

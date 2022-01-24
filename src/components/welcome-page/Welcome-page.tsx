@@ -13,7 +13,7 @@ const WelcomePage: React.FC = () => {
     }
       
       let char = 0;
-      let timer = setInterval(onTick, 10);
+      let timer = setInterval(onTick, 25);
 
     function onTick() {
       const span = text!.querySelectorAll("span")[char] as HTMLSpanElement;

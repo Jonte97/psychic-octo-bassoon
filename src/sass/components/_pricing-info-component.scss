@@ -1,5 +1,5 @@
-@include animation-slide(slide-down, 0px, 300px);
-@include animation-slide(slide-up, 300px, 0px);
+@include animation-slide(drop-down, 0px, 300px);
+@include animation-slide(drop-up, 300px, 0px);
 
 $price-low: #5de1389c;
 $price-medium: #07e5d699;
@@ -32,9 +32,9 @@ $price-high: #ff00e57d;
         .headline-wrapper {
           display: flex;
           justify-content: center;
-          h2 {
+          h1 {
             text-align: center;
-            padding: 1rem;
+            margin-bottom: 0;
             text-align: center;
           }
         }
@@ -76,15 +76,60 @@ $price-high: #ff00e57d;
       }
     }
 
+    .drop-down-component {
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: center;
+      .icon{
+        position: relative;
+        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+        content: "";
+        display: inline-block;
+        /* By using an em scale, the arrows will size with the font */
+        width: 1em;
+        height: 1em;
+        border-top: 0.2em solid white;
+        border-left: 0.2em solid white;
+        margin-right: 0.5em;
+        z-index: 5;
+      }
+      .active {
+          transform: rotate(45deg);
+          animation: close .5s ease;
+      }
+      .not-active{
+          transform: rotate(-135deg);
+          animation: open .5s ease;
+      }
+      @keyframes open {
+          0%{
+              transform: rotate(45deg)
+          }
+          100%{
+              transform: rotate(225deg)
+          }
+      }
+      @keyframes close {
+          0%{
+              transform: rotate(-135deg)
+          }
+          100%{
+              transform: rotate(45deg)
+          }
+      }
+  }
+
+
     //ANIMATIONS
 
     @media screen and (max-width: $phone) {
       .not-active {
-        animation: slide-up 500ms ease;
+        animation: drop-up 500ms ease;
         height: 0;
       }
       .active {
-        animation: slide-down 500ms ease;
+        animation: drop-down 500ms ease;
         height: 300px;
       }
     }

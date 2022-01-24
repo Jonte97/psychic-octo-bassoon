@@ -2,7 +2,7 @@ import profile from "../../assets/img/profile.jpg";
 
 const About: React.FC = () => {
   return (
-    <section id="about-component" className="about-component">
+    <section id="about-component" className="about-component content-section">
       <div className="right-section">
         <article className="about-article">
           <div className="slide-in">

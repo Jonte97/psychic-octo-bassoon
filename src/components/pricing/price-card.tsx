@@ -12,6 +12,7 @@ interface PriceCardProps {
   price: number;
   PriceIconProps: PriceIconProps;
   headerCssClasses: string;
+  bodyCssClasses:string;
 }
 
 interface PriceIconProps {
@@ -28,17 +29,33 @@ const PriceIcon: React.FC<PriceIconProps> = (props: PriceIconProps) => {
 };
 
 const PriceCard: React.FC<PriceCardProps> = (props: PriceCardProps) => {
-  const [open, setOpen] = React.useState<boolean>(false);
+  
+  const isActiveInitial = (isActive:string):boolean => {
+    if (isActive === "active") {
+      return true;
+    }
+    return false;
+  }
+
+  const [open, setOpen] = React.useState<boolean>(isActiveInitial(props.bodyCssClasses));
   const body = React.useRef<HTMLDivElement>(null);
+  const icon = React.useRef<HTMLDivElement>(null);
+
+
   const toggleOpen = (): void => {
-    if (body) {
+    if (body && icon) {
+      console.log('fire', open)
       if (open === true) {
-        body.current?.classList.remove("not-active");
-        body.current?.classList.add("active");
-        setOpen(false);
-      } else {
         body.current?.classList.remove("active");
         body.current?.classList.add("not-active");
+        icon.current?.classList.remove("active");
+        icon.current?.classList.add("not-active");
+        setOpen(false);
+      } else {
+        body.current?.classList.remove("not-active");
+        body.current?.classList.add("active");
+        icon.current?.classList.remove("not-active");
+        icon.current?.classList.add("active");
         setOpen(true);
       }
     }
@@ -54,9 +71,11 @@ const PriceCard: React.FC<PriceCardProps> = (props: PriceCardProps) => {
           <div className="headline-wrapper">
             <h1 className="headline">{props.headline}</h1>
           </div>
+          <div className="drop-down-component">
+            <div ref={icon} className={`icon ${props.bodyCssClasses}`}></div>
+          </div>
         </div>
-
-        <div ref={body} className="price-card-body text-section">
+        <div ref={body} className={`price-card-body text-section ${props.bodyCssClasses}`}>
           <div className="icon-wrapper">
             <PriceIcon
               priceCSSClasses={props.PriceIconProps.priceCSSClasses}

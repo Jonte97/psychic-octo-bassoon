@@ -33,6 +33,20 @@
         height: 100%;
     }
 }
+@keyframes breathTest {
+    0%{
+        transform: scale(1.4);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.4);
+    }
+
+}
+
+//!Not used
 @keyframes breath {
     from {
         transform: scale(1.4);

@@ -28,7 +28,7 @@ const PricingInfo: React.FC = () => {
           price={5300}
           headline="8 sessioner"
 					headerCssClasses="high"
-          description="8 samtal över telefon (1h) efter avstämd tid som passar dig"
+          description="8 enskilda samtal över telefon (1h) efter avstämd tid som passar dig"
 					PriceIconProps={{type:PriceCardLevel.high, priceCSSClasses: "icon priceclass-high"}}
           bodyCssClasses="not-active"
         />

@@ -8,42 +8,14 @@
       margin: 2rem 0;
     }
   }
-  article {
-    .text-section {
-      padding: 0 15%;
-    }
-  }
-  .profile {
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    img {
-      width: 80%;
-      display: block;
-      margin: 0;
-      border-radius: 50%;
-    }
-  }
 
   @media screen and (min-width: $desktop) {
-    display: flex;
-    justify-content: space-between;
-    .profile {
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 500px;
-        height: auto;
-        display: block;
-        margin: 0;
-        border-radius: 50%;
+    .about-wrapper{
+      padding: 5% 15%;
+
+      .about-img{
+        height: 500px;
       }
-    }
-    .right-section {
-      display: flex;
-      align-items: center;
     }
   }
 }

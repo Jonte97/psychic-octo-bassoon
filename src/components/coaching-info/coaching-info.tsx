@@ -1,6 +1,5 @@
 import React from "react";
 import { scrollToId } from "../../domain/core/animations";
-import { BiBody, BiConversation, BiPhoneCall } from "react-icons/bi";
 import PriceCard from "../pricing/price-card";
 
 const CoachingInfo: React.FC = () => {

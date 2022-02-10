@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { keys } from "../../assets/content/keys";
-import { MdClose } from "react-icons/md";
 
 import { KeyValuePair } from "../../domain/model/KeyValuePair.model";
 
@@ -65,7 +64,6 @@ const Keys: React.FC = () => {
                                 slideUp ? "fade-in" : "fade-out"
                             } btn-close`}
                         >
-                            <MdClose />
                         </div>
                         <div className="key-content">
                             <h1 className="title dance-script-headline">

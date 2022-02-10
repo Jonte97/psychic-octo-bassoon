@@ -1,5 +1,4 @@
 import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 
 interface MobileHeaderProps {
   scroll: number;
@@ -14,7 +13,6 @@ const MobileHeader: React.FC<MobileHeaderProps> = (
       <div>
         <div className="">
           <div className="navbar-btn" onClick={props.toggleMenu}>
-            <GiHamburgerMenu />
           </div>
         </div>
       </div>

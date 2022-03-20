@@ -1,6 +1,7 @@
 import React from "react";
 
 const Contact: React.FC = () => {
+    //TEsting
     return (
         <section id="contact" className="contact-component">
             <div className="contact-header">

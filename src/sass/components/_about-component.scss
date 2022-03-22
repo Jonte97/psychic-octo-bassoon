@@ -9,13 +9,9 @@
     }
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: 1600px) {
     .about-wrapper{
       padding: 5% 15%;
-
-      .about-img{
-        height: 500px;
-      }
     }
   }
 }

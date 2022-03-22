@@ -7,7 +7,7 @@ const About: React.FC = () => {
   const [isMobile, setIsMobile] = React.useState<boolean>(isMobileInitial());
 
   function isMobileInitial(): boolean {
-    if (window.innerWidth <= 760) {
+    if (window.innerWidth <= 1200) {
       return true;
     }
     return false;

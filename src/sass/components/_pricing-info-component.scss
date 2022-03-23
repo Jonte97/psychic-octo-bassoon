@@ -10,10 +10,17 @@ $price-high: #ff00e57d;
   padding: 3rem;
 
   .price-wrapper {
+    @media screen and (min-width: $tablet) {
+      padding: 0% 15%;
+    }
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     .price-card-component {
+      max-width: 400px;
       margin-bottom: 1rem;
       border-radius: 10px;
       .low {
@@ -75,7 +82,9 @@ $price-high: #ff00e57d;
         }
       }
     }
-    @media screen and (max-width: $phone) {
+    //Phone
+    @media screen and (max-width: $tablet) {
+      padding: 3rem 5%;
       .drop-down-component {
         display: flex;
         justify-content: center;
@@ -117,11 +126,6 @@ $price-high: #ff00e57d;
           transform: rotate(45deg);
         }
       }
-    }
-
-    //ANIMATIONS
-
-    @media screen and (max-width: $phone) {
       .not-active {
         animation: drop-up 500ms ease;
         height: 0;
@@ -136,12 +140,20 @@ $price-high: #ff00e57d;
   @media screen and (min-width: $desktop) {
     .price-wrapper {
       display: flex;
+      flex-direction: row;
       gap: 1rem;
       justify-content: center;
       align-items: center;
-
+      padding: 0;
       .price-card-component {
         width: 20%;
+        max-width: 250px;
+        .price-card-body {
+          height: 250px;
+          p {
+            padding: 1.5rem;
+          }
+        }
       }
     }
   }

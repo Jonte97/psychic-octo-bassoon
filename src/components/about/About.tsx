@@ -20,10 +20,10 @@ const About: React.FC = () => {
     <section id="about-component" className="about-component content-section">
       <div className="right-section">
         <article className="about-article">
-          <div className="slide-in">
-            <div className="theme-section">
-              <h3 className="dance-script-headline title">Bakgrund</h3>
-            </div>
+          <div className="theme-section">
+            <h3 className="dance-script-headline title">Bakgrund</h3>
+          </div>
+          <div className="about-wrap-wrapper">
             <div className="about-wrapper">
               <ImgText
                 text={text}

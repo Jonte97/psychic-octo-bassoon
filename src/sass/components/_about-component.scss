@@ -1,4 +1,10 @@
 .about-component {
+  .about-wrap-wrapper {
+    @media screen and (min-width: $desktop) {
+      display: flex;
+      justify-content: center;
+    }
+  }
   .theme-section {
     background-color: $theme-primary;
     text-align: center;

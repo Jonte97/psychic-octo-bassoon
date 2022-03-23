@@ -1,6 +1,4 @@
 import React from "react";
-import { IoIosStarOutline } from "react-icons/io";
-import { IoDiamondOutline, IoRocketOutline } from "react-icons/io5";
 export enum PriceCardLevel {
   low = 0,
   medium = 1,
@@ -21,11 +19,11 @@ interface PriceIconProps {
 }
 const PriceIcon: React.FC<PriceIconProps> = (props: PriceIconProps) => {
   if (props.type === PriceCardLevel.low) {
-    return <IoIosStarOutline className={props.priceCSSClasses} />;
+    return null;
   } else if (props.type === PriceCardLevel.medium) {
-    return <IoRocketOutline className={props.priceCSSClasses} />;
+    return null;
   }
-  return <IoDiamondOutline className={props.priceCSSClasses} />;
+  return null;
 };
 
 const PriceCard: React.FC<PriceCardProps> = (props: PriceCardProps) => {

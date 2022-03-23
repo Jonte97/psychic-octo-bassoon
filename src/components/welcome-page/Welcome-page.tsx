@@ -5,10 +5,10 @@ const WelcomePage: React.FC = () => {
     const text = document.querySelector(".welcome-text");
     const strText = text?.textContent;
     const splittedText = strText!.split("");
-    if (text != undefined) {
-      text.textContent = ""; 
+    if (text !== undefined) {
+      text!.textContent = ""; 
       for (let i = 0; i < splittedText!.length; i++) {
-        text.innerHTML += "<span>" + splittedText[i] + "</span>";
+        text!.innerHTML += "<span>" + splittedText[i] + "</span>";
       }
     }
       

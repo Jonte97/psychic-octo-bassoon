@@ -1,5 +1,4 @@
 import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { scrollToId } from "../../domain/core/animations";
 import DesktopHeader from "./desktop-header";
 import MobileHeader from "./mobile-header";

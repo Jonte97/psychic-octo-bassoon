@@ -13,6 +13,11 @@ const MobileHeader: React.FC<MobileHeaderProps> = (
       <div>
         <div className="">
           <div className="navbar-btn" onClick={props.toggleMenu}>
+            <div className="burger">
+              <div className="burger-stick"></div>
+              <div className="burger-stick"></div>
+              <div className="burger-stick"></div>
+            </div>
           </div>
         </div>
       </div>

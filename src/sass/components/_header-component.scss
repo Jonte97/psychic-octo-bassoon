@@ -1,94 +1,117 @@
 @include animation-fade(fade-in, 0%, 100%);
+@import '../mixins/cross.scss';
+
 .header-component {
-    position: fixed;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  color: black;
+  .header-title {
     height: 100px;
-    width: 100%;
-    color: black;
-    .header-title{
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-btn {
+    z-index: 5;
+    position: fixed;
+    border-radius: 50%;
+    background-color: $theme-red;
+    text-decoration: none;
+    top: 2rem;
+    left: 2rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .burger {
+      .burger-stick {
+        background-color: white;
+        width: 20px;
+        height: 3px;
+        margin: 5px;
+      }
     }
-    .navbar-btn {
-        z-index: 3;
-        position: fixed;
-        background-color: $theme-red;
-        padding: 1rem;
-        text-decoration: none;
-        border-radius: 50%;
-        top: 2rem;
-        left: 2rem;
-        svg {
-            display: flex;
-            align-items: center;
-            fill: white;
-            height: 18px;
-            width: 18px;
-        }
-    }
+  }
 }
 .nav-menu {
-    animation: fade-in 200ms linear;
-    margin: 0;
-    height: 100vh;
-    width: 100%;
+  .navbar-btn {
+    z-index: 5;
     position: fixed;
-    display: block;
-    z-index: 2;
-    background-color: $theme-primary;
-    .nav-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        .menu-list {
-            
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            li {
-                text-align: center;
-                margin: 1rem 0;
-                font-size: 2rem;
-                vertical-align: middle;
-            }
-        }
+    background-color: $theme-red;
+    text-decoration: none;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cross {
+			@include cross(30px, white, 3px);  
     }
+  }
+  animation: fade-in 200ms linear;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: block;
+  z-index: 4;
+  background-color: $theme-primary;
+  .nav-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        text-align: center;
+        margin: 1rem 0;
+        font-size: 2rem;
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
 .header-component-desktop {
-    position: fixed;
-    width: 100%;
+  position: fixed;
+  width: 100%;
 
-    .header-title{
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  .header-title {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-background {
+    background-color: #00000067;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .menu-list-desktop {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 1.5rem;
+      li {
+        color: white;
+        display: block;
+        border-bottom: 2px solid transparent;
+      }
+      li:hover {
+        border-bottom: 2px solid white;
+        cursor: pointer;
+      }
     }
-    .header-background{
-        background-color: #00000067;
-    }
-    .header-inner{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        
-        .menu-list-desktop{
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            font-size: 1.5rem;
-            li{
-                color: white;
-                display: block;
-                border-bottom: 2px solid transparent;
-            }
-            li:hover{
-                border-bottom: 2px solid white;
-                cursor: pointer;
-            }
-        }
-    }
+  }
 }

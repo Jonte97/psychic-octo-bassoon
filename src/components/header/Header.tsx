@@ -49,9 +49,9 @@ const Header: React.FC = () => {
 
   //*To navigate from menu
   const navigate = (id: string): void => {
-    if(isMobile) {
+    if (isMobile) {
       toggleMenu();
-    } 
+    }
     scrollToId(id);
   };
 
@@ -72,6 +72,11 @@ const Header: React.FC = () => {
 
       {menuOpen && (
         <nav className="nav-menu">
+          <div className="navbar-btn" onClick={toggleMenu}>
+            <div className="cross">
+              <div className="cross-stick"></div>
+            </div>
+          </div>
           <div className="nav-wrapper">
             <ul className="menu-list dance-script-headline">
               <li onClick={() => navigate("about-component")}>Om mig</li>

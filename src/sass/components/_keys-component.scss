@@ -8,7 +8,7 @@
   height: 100vh !important;
   overflow: hidden;
   position: relative;
-  background-color: white;
+  background-color: black;
 
   .image-animation {
     animation: breathTest 25s linear infinite;
@@ -136,5 +136,18 @@
     padding: 1rem;
     border-radius: 50%;
     background-color: $theme-red;
+  }
+  .key-description {
+    background-color: white;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+  }
+  .dummy-right,
+  .dummy-left {
+    background-color: black;
+    height: 100%;
+    width: 25%;
+    z-index: 1;
   }
 }

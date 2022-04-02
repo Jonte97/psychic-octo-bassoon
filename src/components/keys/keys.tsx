@@ -14,7 +14,6 @@ const Keys: React.FC = () => {
     React.createRef<HTMLSpanElement>(),
   ]);
   const keyRef = React.useRef<HTMLDivElement>(null);
-  const closeBtnRef = React.useRef<HTMLDivElement>(null);
   const readMoreRef = React.useRef<HTMLDivElement>(null);
 
   const [activeKey, setActiveKey] = useState<KeyValuePair>(keys[0]);
@@ -57,12 +56,17 @@ const Keys: React.FC = () => {
     <section id="seven-keys-component" className="keys-component">
       <div className={`${slideUp ? "slide-up" : "slide-down"} image-wrapper`}>
         <div className={`image-container `}>
+          <div className="dummy-left"></div>
           <KeyImage slideUp={slideUp} imagePath={activeKey.value.image} />
+          <div className="dummy-right"></div>
         </div>
-          <article className="key-description text-section">
+        {/* Text */}
+        <article className="key-description">
+          <div className="text-section">
             <h1>{activeKey.value.title}</h1>
             <p className="paragraph">{activeKey.value.description}</p>
-          </article>
+          </div>
+        </article>
         {/* Close button */}
         <div
           onClick={() => readMore()}

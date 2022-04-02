@@ -11,7 +11,8 @@
   }
   .image-text-image{
     @media screen and (max-width: $phone) {
-      max-height: 375px !important;
+      width: 100vw;
+      overflow: hidden;
     }
   }
 }

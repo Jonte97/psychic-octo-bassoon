@@ -17,7 +17,7 @@ const ImgText: React.FC<ImgTextProps> = (props: ImgTextProps) => {
       >
         {props.imgRight ? (
           <React.Fragment>
-            <img src={props.img} alt="" />
+            <img className="image-text-image" src={props.img} alt="" />
             <div className="text-section">
               <h1>{props.headline}</h1>
               <p className="paragraph">{props.text}</p>
@@ -29,7 +29,7 @@ const ImgText: React.FC<ImgTextProps> = (props: ImgTextProps) => {
               <h1>{props.headline}</h1>
               <p className="paragraph">{props.text}</p>
             </div>
-            <img src={props.img} alt="" />
+            <img className="image-text-image" src={props.img} alt="" />
           </React.Fragment>
         )}
       </div>

@@ -13,6 +13,9 @@ const Keys: React.FC = () => {
     React.createRef<HTMLSpanElement>(),
     React.createRef<HTMLSpanElement>(),
   ]);
+  const keyRef = React.useRef<HTMLDivElement>(null);
+  const closeBtnRef = React.useRef<HTMLDivElement>(null);
+  const readMoreRef = React.useRef<HTMLDivElement>(null);
 
   const [activeKey, setActiveKey] = useState<KeyValuePair>(keys[0]);
 
@@ -28,6 +31,24 @@ const Keys: React.FC = () => {
 
   const [slideUp, setSlideUp] = React.useState<boolean>(false);
 
+  useEffect(() => {
+    refs.current[0].current?.classList.add("active");
+  }, []);
+
+  useEffect(() => {
+    slideUp === true ? toggleElements(true) : toggleElements(false);
+  }, [slideUp]);
+
+  function toggleElements(show: boolean) {
+    if (show === true) {
+      keyRef.current?.classList.replace("fade-in", "fade-out");
+      readMoreRef.current?.classList.replace("fade-in", "fade-out");
+    } else {
+      keyRef.current?.classList.replace("fade-out", "fade-in");
+      readMoreRef.current?.classList.replace("fade-out", "fade-in");
+    }
+  }
+
   const readMore = () => {
     setSlideUp(!slideUp);
   };
@@ -38,7 +59,21 @@ const Keys: React.FC = () => {
         <div className={`image-container `}>
           <KeyImage slideUp={slideUp} imagePath={activeKey.value.image} />
         </div>
-        <div className="key-list">
+          <article className="key-description text-section">
+            <h1>{activeKey.value.title}</h1>
+            <p className="paragraph">{activeKey.value.description}</p>
+          </article>
+        {/* Close button */}
+        <div
+          onClick={() => readMore()}
+          className={`${slideUp ? "fade-in" : "fade-out"} btn-close`}
+        >
+          <div className="cross">
+            <div className="cross-sticks"></div>
+          </div>
+        </div>
+        {/* Bullet list */}
+        <div ref={keyRef} className="key-list fade-in">
           <ul>
             {keys.map((value, index) => (
               <li key={index}>
@@ -53,7 +88,8 @@ const Keys: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="read-more-wrapper ">
+      {/* Read more btn */}
+      <div ref={readMoreRef} className="read-more-wrapper fade-in">
         <div className="read-more-container hexagon" onClick={() => readMore()}>
           <a>Läs mer</a>
         </div>

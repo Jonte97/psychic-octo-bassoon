@@ -5,124 +5,89 @@
 @import "../mixins/cross.scss";
 
 .keys-component {
-  height: 100vh;
-  .key {
-    position: relative;
-    .key-section {
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-      .key-content {
-        z-index: 1;
-        color: white;
-        position: absolute;
-        top: 20%;
-        text-align: center;
-        width: 100%;
-        .btn-readmore {
-          span {
-            padding: 0.5rem;
-            border: 2px solid white;
-          }
-        }
-      }
-      .fade-out {
-        animation: fade-out 1s linear forwards;
-      }
-      .fade-in {
-        animation: fade-in 2s linear forwards;
-      }
-      
-      .btn-close {
-        z-index: 1;
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        padding: 1rem;
-        border-radius: 50%;
-        background-color: $theme-red;
-
-        z-index: 5;
-        background-color: $theme-red;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-				.cross {
-					@include cross(20px, white, 3px);
-				}
-      }
-      .image-container {
-        height: 100%;
-        .image {
-          display: block;
-          height: 100%;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      }
-      .image-animation {
-        animation: breathTest 45s infinite;
-      }
-    }
-    .key-wrapper {
-      overflow: hidden;
-      position: relative;
-      height: 100%;
-    }
-    .key-list {
-      position: absolute;
-      bottom: 5%;
-      width: 100%;
-      ul {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        list-style: none;
-        justify-content: center;
-        li {
-          margin: 5px;
-          .dot {
-            opacity: 0.5;
-            height: 12px;
-            width: 12px;
-            background-color: white;
-            border-radius: 50%;
-            display: inline-block;
-          }
-          .active {
-            background-color: rgba(246, 4, 4, 0.623);
-          }
-        }
-      }
-    }
-    .key-description {
-      padding: 1rem;
-    }
-
-    .slide-up {
-      animation: slide-up 2000ms ease;
-      height: 60%;
-    }
-    .slide-down {
-      animation: slide-down 1000ms ease;
-      height: 100%;
-    }
+  height: 100vh !important;
+  overflow: hidden;
+  position: relative;
+  background-color: black;
+  .image-animation {
+    animation: breathTest 25s infinite;
   }
-  @media screen and (min-width: $desktop) {
-    width: 100%;
+	.image-container{
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+  .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    .image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .image {
+
+    .key-image {
+      display: block;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      @media screen and (width: $desktop) {
         height: unset !important;
       }
     }
   }
+  .read-more-wrapper {
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .read-more-container {
+			cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      // border-radius: 50%;
+      a {
+        opacity: none;
+        color: white;
+        font-size: 1rem;
+        z-index: 1;
+      }
+    }
+  }
+  .hexagon {
+    position: absolute;
+    margin: 0 auto;
+    background-color: $theme-primary;
+    border-radius: 10px;
+    width: 100px;
+    height: 63px;
+    box-sizing: border-box;
+    transition: all 1s;
+    border: 0.4vh solid transparent;
+  }
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    border: inherit;
+    position: absolute;
+    top: -0.5vh;
+    left: -0.5vh;
+    background-color: $theme-primary;
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+  }
+  .hexagon:before {
+    transform: rotate(60deg);
+  }
+  .hexagon:after {
+    transform: rotate(-60deg);
+  }
+}
+.slide-up {
+  animation: slide-up 2000ms ease;
+  height: 60%;
+}
+.slide-down {
+  animation: slide-down 1000ms ease;
+  height: 100%;
 }

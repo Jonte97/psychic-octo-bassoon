@@ -1,14 +1,16 @@
 p,
 span,
-textarea {
-    font-family: robotoRegular;
-    font-size: 1.2rem;
+textarea,
+a,
+li {
+  font-family: robotoRegular;
+  font-size: 1.2rem;
 }
 input,
 select,
 textarea,
 button {
-    font-family: inherit !important;
+  font-family: inherit !important;
 }
 h1,
 h2,
@@ -16,20 +18,20 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: robotoHeadline;
+  font-family: robotoHeadline;
 }
 .dance-script-headline {
-    font-family: dancingScriptHeadline;
-    font-size: 4rem;
-    color: white;
+  font-family: dancingScriptHeadline;
+  font-size: 4rem;
+  color: white;
 }
 .dance-script {
-    font-family: dancingScriptHeadline;
-    color: white;
-    font-size: 3rem;
-    margin: 0;
+  font-family: dancingScriptHeadline;
+  color: white;
+  font-size: 3rem;
+  margin: 0;
 }
 .dance-script-headline-dark {
-    font-family: dancingScriptHeadline;
-    font-size: 2rem;
+  font-family: dancingScriptHeadline;
+  font-size: 2rem;
 }

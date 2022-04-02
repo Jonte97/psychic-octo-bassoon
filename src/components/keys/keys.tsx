@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { keys } from "../../assets/content/keys";
 
 import { KeyValuePair } from "../../domain/model/KeyValuePair.model";
+import KeyImage from "./key-image";
 
 const Keys: React.FC = () => {
   const refs = useRef([
@@ -15,33 +16,33 @@ const Keys: React.FC = () => {
 
   const [activeKey, setActiveKey] = useState<KeyValuePair>(keys[0]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("image-animation");
-        }
-      });
-    });
-    const imageElement = document.querySelector(".image-container");
-    if (imageElement) {
-      observer.observe(imageElement);
-    }
-  }, []);
-  useEffect(() => {
-    document
-      .querySelector(".image-container")
-      ?.classList.add("image-animation");
-  }, [activeKey]);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add("image-animation");
+  //       }
+  //     });
+  //   });
+  //   const imageElement = document.querySelector(".image-container");
+  //   if (imageElement) {
+  //     observer.observe(imageElement);
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   // document
+  //   //   .querySelector(".image-container")
+  //   //   ?.classList.add("image-animation");
+  // }, [activeKey]);
 
-  const changeKey = (id: number): void => {
-    document
-      .querySelector(".image-container")
-      ?.classList.remove("image-animation");
-    refs.current[activeKey.key].current?.classList.remove("active");
-    refs.current[id].current?.classList.add("active");
-    setActiveKey(keys[id]);
-  };
+  // const changeKey = (id: number): void => {
+  //   document
+  //     .querySelector(".image-container")
+  //     ?.classList.remove("image-animation");
+  //   refs.current[activeKey.key].current?.classList.remove("active");
+  //   refs.current[id].current?.classList.add("active");
+  //   setActiveKey(keys[id]);
+  // };
 
   const [slideUp, setSlideUp] = React.useState<boolean>(false);
 
@@ -51,62 +52,14 @@ const Keys: React.FC = () => {
 
   return (
     <section id="seven-keys-component" className="keys-component">
-      <div className="key">
-        <div className={`key-section`}>
-          <div className={`${slideUp ? "slide-up" : "slide-down"} key-wrapper`}>
-            {/* <div className="cross btn-close" onClick={() => readMore()}>
-              <div className="cross-stick">
-							</div>
-            </div> */}
-            <div
-              className={`${slideUp ? "fade-in" : "fade-out"} btn-close`}
-              onClick={() => readMore()}
-            >
-              <div className="cross">
-                <div className="cross-stick"></div>
-              </div>
-            </div>
-            {/* <div
-              onClick={() => readMore()}
-              className={`${slideUp ? "fade-in" : "fade-out"} btn-close`}
-            ></div> */}
-            <div className="key-content">
-              <h1 className="title dance-script-headline">
-                {activeKey.value.title}
-              </h1>
-
-              <div
-                className={`${!slideUp ? "fade-in" : "fade-out"} btn-readmore`}
-              >
-                <span onClick={() => readMore()}>Läs mer</span>
-              </div>
-            </div>
-            <div className="image-container">
-              <img
-                alt="keyImage"
-                className={`image`}
-                src={activeKey?.value.image}
-              ></img>
-            </div>
-            <div className="key-list">
-              <ul>
-                {keys.map((value, index) => (
-                  <li key={index}>
-                    <span
-                      ref={refs.current[index]}
-                      id={`key${index}`}
-                      onClick={() => changeKey(index)}
-                      className="dot"
-                    ></span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <article className="key-description text-section">
-            <h1>{activeKey.value.title}</h1>
-            <p className="paragraph">{activeKey.value.description}</p>
-          </article>
+      <div className={`${slideUp ? "slide-up" : "slide-down"} image-wrapper`}>
+        <div className={`image-container `}>
+          <KeyImage slideUp={slideUp} imagePath={activeKey.value.image} />
+        </div>
+      </div>
+      <div className="read-more-wrapper ">
+        <div className="read-more-container hexagon" onClick={() => readMore()}>
+          <a>Läs mer</a>
         </div>
       </div>
     </section>

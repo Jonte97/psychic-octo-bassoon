@@ -10,13 +10,13 @@
   position: relative;
   background-color: black;
   .image-animation {
-    animation: breathTest 25s infinite;
+    animation: breathTest 25s linear infinite;
   }
-	.image-container{
-		height: 100%;
-		overflow: hidden;
-		position: relative;
-	}
+  .image-container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
   .image-container {
     display: flex;
     justify-content: center;
@@ -39,12 +39,11 @@
     display: flex;
     justify-content: center;
     .read-more-container {
-			cursor: pointer;
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 1rem;
-      // border-radius: 50%;
       a {
         opacity: none;
         color: white;
@@ -82,12 +81,40 @@
   .hexagon:after {
     transform: rotate(-60deg);
   }
-}
-.slide-up {
-  animation: slide-up 2000ms ease;
-  height: 60%;
-}
-.slide-down {
-  animation: slide-down 1000ms ease;
-  height: 100%;
+  .slide-up {
+    animation: slide-up 2000ms ease;
+    height: 60%;
+  }
+  .slide-down {
+    animation: slide-down 1000ms ease;
+    height: 100%;
+  }
+  .key-list {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+			gap: 1rem;
+      li {
+        margin: 5px;
+        .dot {
+					cursor: pointer;
+          opacity: 0.5;
+          height: 24px;
+          width: 24px;
+          background-color: white;
+          border-radius: 50%;
+					display: inline-block;
+        }
+        .active {
+          background-color: rgba(246, 4, 4, 0.623);
+        }
+      }
+    }
+  }
 }

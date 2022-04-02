@@ -35,26 +35,17 @@
 }
 @keyframes breathTest {
     0%{
-        transform: scale(1.4);
+        transform: scale(1.2);
     }
     50%{
         transform: scale(1);
     }
     100%{
-        transform: scale(1.4);
+        transform: scale(1.2);
     }
 
 }
 
-//!Not used
-@keyframes breath {
-    from {
-        transform: scale(1.4);
-    }
-    to {
-        transform: scale(1);
-    }
-}
 @keyframes slideUp {
     0% {
         height: 100%;

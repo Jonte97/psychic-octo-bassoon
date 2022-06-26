@@ -36,6 +36,7 @@
   }
 }
 .nav-menu {
+  z-index: 7 !important;
   .navbar-btn {
     z-index: 5;
     position: fixed;

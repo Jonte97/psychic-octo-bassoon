@@ -12,6 +12,7 @@
         margin-right: auto;
         max-width: 700px;
         .form-element {
+            z-index: -1;
             margin-bottom: 2rem;
             width: 100%;
             overflow: hidden;

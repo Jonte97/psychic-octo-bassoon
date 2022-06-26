@@ -1,29 +1,23 @@
 import React from "react";
+import facebookIcon from "../../assets/icons/facebook.svg";
+import instagramIcon from "../../assets/icons/instagram.svg";
 
 const Footer: React.FC = () => {
-    return (
-        <footer className="footer-component">
-            
-            <ul className="social-media-list">
-                <li>
-                    <a href="" className="facebook-link icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="" className="instagram-link icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="" className="twitter-link icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="" className="linkedin-link icon">
-                    </a>
-                </li>
-            </ul>
-        </footer>
-    );
+  return (
+    <footer className="footer-component">
+      <ul className="social-media-list">
+        <li>
+          <a href="linktoinstagram.com">
+            <img className="svg-icon" src={facebookIcon} alt="icon" />
+          </a>
+        </li>
+        <li>
+					<img className="svg-icon" src={instagramIcon} alt="icon" />
+
+				</li>
+      </ul>
+    </footer>
+  );
 };
 
 export default Footer;

@@ -1,9 +1,9 @@
 @include animation-slide(drop-down, 0px, 300px);
 @include animation-slide(drop-up, 300px, 0px);
 
-$price-low: #5de1389c;
-$price-medium: #07e5d699;
-$price-high: #ff00e57d;
+$price-low: #1c3800;
+$price-medium: #011b00;
+$price-high: #000000;
 
 .pricing-info-component {
   background-color: #f2f5fe;

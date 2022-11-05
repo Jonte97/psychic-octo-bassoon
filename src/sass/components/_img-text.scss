@@ -23,6 +23,7 @@
     .img-text-wrapper {
       img {
         padding: 2rem 5rem;
+        max-width: 400px;
       }
       display: flex;
       flex-direction: column;
@@ -37,6 +38,7 @@
     padding: 1rem;
     img {
       height: 400px;
+      max-width: unset !important;
       padding: 0 !important;
     }
     .img-text-wrapper {
